@@ -1,6 +1,6 @@
 from utils import *
 from typing import dict, union
-from bd import knoledge_type, knoledge_base, load_db
+from bd import knoledge_type, knoledge_base, load_db, check_db
 
 
 

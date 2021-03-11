@@ -5,12 +5,14 @@
     <ProjectGuid>3c9779d7-c4eb-4983-acfa-eaf59a82f66d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>SE_core.py</StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <SearchPath>..\..\knoledge_base</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>SE_core</Name>
     <RootNamespace>SE_core</RootNamespace>
+    <TestFramework>unittest</TestFramework>
+    <UnitTestPattern>test*.py</UnitTestPattern>
+    <UnitTestRootDirectory>./tests</UnitTestRootDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
