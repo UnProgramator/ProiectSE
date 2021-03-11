@@ -1,11 +1,11 @@
 from utils import *
-from typing import dict, union
+from typing import Union, Dict, List
 from bd import knoledge_type, knoledge_base, load_db, check_db
 
 
 
 
-def process(inputData: dict[str, union[str, int, bool, list[union[str, int, bool]]]]) -> knoledge_type:
+def process(inputData: Dict[str, Union[str, int, bool, List[Union[str, int, bool]]]]) -> knoledge_type:
     """
     process an imput for a client and calculate which games are recomended
 
@@ -17,7 +17,7 @@ def process(inputData: dict[str, union[str, int, bool, list[union[str, int, bool
     """
     pass
 
-def get_score(knoledge_attr: str, knoledge_val: union[str, int, bool], obj: knoledge_type) -> float:
+def get_score(knoledge_attr: str, knoledge_val: Union[str, int, bool], obj: knoledge_type) -> float:
     """
     A function that verify if an value for an attribute is pressent in a game attributes and return a score
     

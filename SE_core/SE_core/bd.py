@@ -1,15 +1,17 @@
 import json
+from utils import transform
+from typing import Union, Dict, List, Iterable
 
-knoledge_type = dict[str, union[str, int, Interable('knoledge_type')]]
+knoledge_type = Dict[str, Union[str, int, Iterable['knoledge_type']]]
 
-knoledge_base: list[knoledge_type]
+knoledge_base: Dict[str, knoledge_type]=None
 
 def load_db() -> None:
     """
     load the database into the global variable knoledge_base
     """
     with open("") as json_file:
-        knoledge_base=json.load(json_file)
+        knoledge_base = transform(json.load(json_file))
 
 def check_db()-> None:
     """
