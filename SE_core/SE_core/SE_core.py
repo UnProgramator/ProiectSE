@@ -5,7 +5,7 @@ from bd import knoledge_type, knoledge_base, load_db, check_db
 
 
 
-def process(inputData: Dict[str, Union[str, int, bool, List[Union[str, int, bool]]]]) -> knoledge_type:
+def process(inputData: Dict[str, Union[str, int, bool, List[Union[str, int, bool]]]], limit:int) -> knoledge_type:
     """
     process an imput for a client and calculate which games are recomended
 
@@ -15,9 +15,31 @@ def process(inputData: Dict[str, Union[str, int, bool, List[Union[str, int, bool
     Return:
     (knoledge_type) the games and description
     """
-    pass
+    scoreboard={}
+    result=[]
 
-def get_score(knoledge_attr: str, knoledge_val: Union[str, int, bool], obj: knoledge_type) -> float:
+    for attributes in knoledge_base:
+        score = get_score(inputData, attributes)
+        if score < 0.0:
+            continue
+        if score in scoreboard:
+            scoreboard[score]+=attributes
+        else:
+            scoreboard[score]=list(attributes)
+    
+    nr=0 
+
+    for i in sorted(scoreboard):
+        nr+=len(lst)
+        
+        result += scoreboard[i].sort()
+
+        if(nr>=limit):
+            break
+    return result[0:limit]
+
+
+def get_score(inputData: Dict[str, Union[str, int, bool, List[Union[str, int, bool]]]], obj: knoledge_type) -> float:
     """
     A function that verify if an value for an attribute is pressent in a game attributes and return a score
     
@@ -32,3 +54,8 @@ def get_score(knoledge_attr: str, knoledge_val: Union[str, int, bool], obj: knol
     (int) the score
     """
     pass
+
+
+
+if __name__=="__main__":
+    exit(0)
