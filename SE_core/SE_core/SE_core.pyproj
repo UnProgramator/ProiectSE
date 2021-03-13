@@ -4,8 +4,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3c9779d7-c4eb-4983-acfa-eaf59a82f66d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>test\util_unitest.py</StartupFile>
-    <SearchPath>..\..\knoledge_base</SearchPath>
+    <StartupFile>SE_core.py</StartupFile>
+    <SearchPath>..\..\knoledge_base;..\..\knoledge_base</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>SE_core</Name>

@@ -45,7 +45,7 @@ class Test_util_unitest(unittest.TestCase):
     #                                   'gen':['souls-like', 'hack-n-slash', 'combat']}}
     #    resulted_value = utils.transform(initival_value)
     #    self.assertEqual(expected_result, resulted_value)
-
+    pass
 
 if __name__ == '__main__':
     unittest.main()

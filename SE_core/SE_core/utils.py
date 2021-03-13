@@ -14,3 +14,13 @@ word_dist = lambda x,y : difflib.SequenceMatcher(None, x, y).ratio()
 #            raise Exception("duplicate game exception")
 
 #    return to
+
+def print_list(l:list):
+    for i in l:
+        if type(i) is dict:
+            for k in i:
+                print(k, " -> ", i[k])
+        else:
+            print(i)
+        print()
+    print()

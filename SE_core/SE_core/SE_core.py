@@ -1,11 +1,11 @@
 from utils import *
 from typing import Union, Dict, List
-from bd import knoledge_type, knoledge_base, load_db, check_db
+import bd
+from bd import knoledge_type, load_db, check_db
+import random
 
 
-
-
-def process(inputData: Dict[str, Union[str, int, bool, List[Union[str, int, bool]]]], limit:int) -> knoledge_type:
+def process(inputData: knoledge_type, limit:int) -> knoledge_type:
     """
     process an imput for a client and calculate which games are recomended
 
@@ -18,28 +18,33 @@ def process(inputData: Dict[str, Union[str, int, bool, List[Union[str, int, bool
     scoreboard={}
     result=[]
 
-    for attributes in knoledge_base:
-        score = get_score(inputData, attributes)
+    if type(limit) is not int:
+        raise Exception("limit must be an integer")
+
+    for game_attributes in bd.knoledge_base:
+        score = get_score(inputData, game_attributes)
         if score < 0.0:
             continue
         if score in scoreboard:
-            scoreboard[score]+=attributes
+            scoreboard[score]+=[game_attributes]
         else:
-            scoreboard[score]=list(attributes)
+            scoreboard[score]=[game_attributes]
     
     nr=0 
 
     for i in sorted(scoreboard):
-        nr+=len(lst)
-        
-        result += scoreboard[i].sort()
+        nr+=len(result)
+
+        scoreboard[i].sort(key=lambda x: x['nume'])
+
+        result += scoreboard[i]
 
         if(nr>=limit):
             break
     return result[0:limit]
 
 
-def get_score(inputData: Dict[str, Union[str, int, bool, List[Union[str, int, bool]]]], obj: knoledge_type) -> float:
+def get_score(inputData: knoledge_type, obj: knoledge_type) -> float:
     """
     A function that verify if an value for an attribute is pressent in a game attributes and return a score
     
@@ -53,9 +58,16 @@ def get_score(inputData: Dict[str, Union[str, int, bool, List[Union[str, int, bo
     Return:
     (int) the score
     """
-    pass
+    return random.randrange(-1, 20, 1) #stubed
 
+
+def main():
+    load_db()
+    #check_db()
+    l = process({"1":1, "ana":'"ana"'}, 10)
+    print_list(l)
 
 
 if __name__=="__main__":
+    main()
     exit(0)
