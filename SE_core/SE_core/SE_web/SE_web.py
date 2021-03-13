@@ -60,7 +60,7 @@ def index():
         else:
             user_input["pegi"] = 3 # ok
         
-        getPreferenceMethod(user_input)
+        print(getPreferenceMethod(user_input))
 
         return redirect(url_for("results"))
     else:
@@ -73,6 +73,7 @@ def results():
 
 
 def set_callback(funptr):
+    global getPreferenceMethod
     getPreferenceMethod = funptr
 
 def main_loop():

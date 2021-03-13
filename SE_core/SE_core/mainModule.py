@@ -1,11 +1,11 @@
 import SE_core as core
 import utils
-import SE_web as web
+import SE_web.SE_web as web
 
 
 
 def main():
-    #web.set_callback(core.callback)
+    web.set_callback(core.callback)
     core.main()
     web.main_loop()
 
