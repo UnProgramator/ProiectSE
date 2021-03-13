@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3c9779d7-c4eb-4983-acfa-eaf59a82f66d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>SE_core.py</StartupFile>
+    <StartupFile>sidetools\change_json_format.py</StartupFile>
     <SearchPath>..\..\knoledge_base;..\..\knoledge_base</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -27,12 +27,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SE_core.py" />
+    <Compile Include="sidetools\change_json_format.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="test\util_unitest.py" />
     <Compile Include="utils.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="sidetools\" />
     <Folder Include="test\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

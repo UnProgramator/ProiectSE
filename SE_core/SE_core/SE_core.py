@@ -58,13 +58,31 @@ def get_score(inputData: knoledge_type, obj: knoledge_type) -> float:
     Return:
     (int) the score
     """
-    return random.randrange(-1, 20, 1) #stubed
+    score = 0
+
+    if inputData['pegi'] != -1 and inputData['pegi'] < obj['pegi']:
+        # daca copilul are varsta specificata si o are mai mica ca jocul, se returneaza -100 din start
+        return -100
+
+    if inputData['multiplayer'] == obj['multiplayer']: score += 100
+    else: score -= 50
+
+    if inputData['singleplayer'] == obj['singleplayer']: score += 100
+    else: score -= 50
+
+    if inputData['producator'] is not None:
+        for pr in inputData['producator']:
+            if word_dist(pr, obj['producator']) > 80:
+                score+= 100
+                break
+
+    return score
 
 
 def main():
     load_db()
     #check_db()
-    l = process({"1":1, "ana":'"ana"'}, 10)
+    l = process({"multiplayer":True, "singleplayer":True, "pegi":12, 'producator':['Blizzards']}, 10)
     print_list(l)
 
 
