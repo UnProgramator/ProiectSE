@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3c9779d7-c4eb-4983-acfa-eaf59a82f66d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>SE_core.py</StartupFile>
+    <StartupFile>mainModule.py</StartupFile>
     <SearchPath>..\..\knoledge_base;..\..\knoledge_base</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>

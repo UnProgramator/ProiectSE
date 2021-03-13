@@ -71,6 +71,7 @@ def index():
 def results():
     return render_template('results.html')
 
+
 def set_callback(funptr):
     getPreferenceMethod = funptr
 

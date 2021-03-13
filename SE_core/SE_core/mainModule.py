@@ -5,7 +5,7 @@ import SE_web as web
 
 
 def main():
-    web.set_callback(core.callback)
+    #web.set_callback(core.callback)
     core.main()
     web.main_loop()
 
