@@ -3,6 +3,7 @@ from typing import Union, Dict, List
 import bd
 from bd import knoledge_type, load_db, check_db
 import random
+import SE_web
 
 
 def process(inputData: knoledge_type, limit:int) -> knoledge_type:
@@ -78,6 +79,8 @@ def get_score(inputData: knoledge_type, obj: knoledge_type) -> float:
 
     return score
 
+def callback(preferences):
+    return process(preferences, 10)
 
 def main():
     load_db()
@@ -85,7 +88,5 @@ def main():
     l = process({"multiplayer":True, "singleplayer":True, "pegi":12, 'producator':['Blizzards']}, 10)
     print_list(l)
 
-
-if __name__=="__main__":
+if __name__ == '__main__':
     main()
-    exit(0)

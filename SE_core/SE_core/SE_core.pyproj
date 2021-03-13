@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3c9779d7-c4eb-4983-acfa-eaf59a82f66d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>sidetools\change_json_format.py</StartupFile>
+    <StartupFile>SE_core.py</StartupFile>
     <SearchPath>..\..\knoledge_base;..\..\knoledge_base</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -26,7 +26,11 @@
     <Compile Include="bd.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="mainModule.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="SE_core.py" />
+    <Compile Include="SE_web\SE_web.py" />
     <Compile Include="sidetools\change_json_format.py">
       <SubType>Code</SubType>
     </Compile>
@@ -36,8 +40,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="knoledge_base\" />
+    <Folder Include="SE_web\" />
+    <Folder Include="SE_web\templates\" />
     <Folder Include="sidetools\" />
     <Folder Include="test\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="knoledge_base\knoledge_base.json" />
+    <Content Include="SE_web\templates\index.html" />
+    <Content Include="SE_web\templates\results.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
