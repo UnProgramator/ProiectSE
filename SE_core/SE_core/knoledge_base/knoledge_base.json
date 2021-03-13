@@ -26,7 +26,8 @@
           "producator": "Team Ninja",
           "gen": [
                "Action",
-               "RPG"
+               "RPG",
+               "Souls-like"
           ],
           "pegi": 15
      },
@@ -318,7 +319,8 @@
           "gen": [
                "Action",
                "Adventure",
-               "Sandbox"
+               "Sandbox",
+               "TPS"
           ],
           "pegi": 18
      },
@@ -623,7 +625,8 @@
           "producator": "FromSoftware",
           "gen": [
                "Action",
-               "Adventure"
+               "Adventure",
+               "Souls-like"
           ],
           "pegi": 16
      },
@@ -810,5 +813,180 @@
                "Racing Simulation"
           ],
           "pegi": 13
+     },
+     {
+          "nume": "Mortal Shell",
+          "multiplayer": false,
+          "singleplayer": true,
+          "platforma": [
+               "pc",
+               "ps",
+               "xbox"
+          ],
+          "producator": "Cold Symmetry",
+          "gen": [
+               "Action",
+               "Souls-like",
+               "RPG"
+          ],
+          "pegi": 16
+     },
+     {
+          "nume": "Alien: Isolation",
+          "multiplayer": false,
+          "singleplayer": true,
+          "platforma": [
+               "pc",
+               "ps",
+               "xbox"
+          ],
+          "producator": "Creative Assembly",
+          "gen": [
+               "Horror",
+               "Survival Horror",
+               "Atmospheric"
+          ],
+          "pegi": 18
+     },
+     {
+          "nume": "The Medium",
+          "multiplayer": false,
+          "singleplayer": true,
+          "platforma": [
+               "pc",
+               "ps",
+               "xbox"
+          ],
+          "producator": "Bloober Team",
+          "gen": [
+               "Horror",
+               "Psychological horror"
+               
+          ],
+          "pegi": 18
+     },
+     {
+          "nume": "The Evil Within",
+          "multiplayer": false,
+          "singleplayer": true,
+          "platforma": [
+               "pc",
+               "ps",
+               "xbox"
+          ],
+          "producator": "Tango Gameworks",
+          "gen": [
+               "Horror",
+               "Survival Horror",
+               "Psychological horror",
+               "TPS"
+               
+          ],
+          "pegi": 18
+     },
+     {
+          "nume": "Dead by Daylight",
+          "multiplayer": true,
+          "singleplayer": false,
+          "platforma": [
+               "pc",
+               "ps",
+               "xbox"
+          ],
+          "producator": "Behaviour Interactive",
+          "gen": [
+               "Horror",
+               "Survival Horror"
+                             
+          ],
+          "pegi": 18
+     },
+     {
+          "nume": "Amnesia: The Dark Descent",
+          "multiplayer": false,
+          "singleplayer": true,
+          "platforma": [
+               "pc",
+               "ps",
+               "xbox"
+          ],
+          "producator": "Frictional Games",
+          "gen": [
+               "Horror",
+               "Survival Horror",
+               "Atmospheric",
+               "Adventure"
+               
+          ],
+          "pegi": 18
+     },
+     {
+          "nume": "Risk of Rain 2",
+          "multiplayer": true,
+          "singleplayer": true,
+          "platforma": [
+               "pc",
+               "ps",
+               "xbox"
+          ],
+          "producator": "Hopoo Games",
+          "gen": [
+               "TPS",
+               "Roguelike",
+               "Atmospheric",
+               "Adventure"
+               
+          ],
+          "pegi": 12
+     },
+     {
+          "nume": "Bloodborne",
+          "multiplayer": true,
+          "singleplayer": true,
+          "platforma": [               
+               "ps"              
+          ],
+          "producator": "FromSoftware",
+          "gen": [
+               "Action",
+               "RPG",
+               "Souls-like"
+               
+          ],
+          "pegi": 16
+     },
+     {
+          "nume": "Uncharted",
+          "multiplayer": false,
+          "singleplayer": true,
+          "platforma": [
+               "ps"           
+          ],
+          "producator": "Naughty Dog",
+          "gen": [
+               "Action",
+               "Adventure",
+               "TPS",
+               "Platformer"
+          ],
+          "pegi": 16
+     },
+     {
+          "nume": "Shadow of the Tomb Raider",
+          "multiplayer": false,
+          "singleplayer": true,
+          "platforma": [
+               "pc",
+               "ps",
+               "xbox"         
+          ],
+          "producator": "Eidos-Montréal",
+          "gen": [
+               "Action",
+               "Adventure",
+               "Story-Rich",
+               "TPS"
+          ],
+          "pegi": 16
      }
 ]
