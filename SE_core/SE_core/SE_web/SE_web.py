@@ -62,6 +62,7 @@ def index():
         
         print(getPreferenceMethod(user_input))
 
+
         return redirect(url_for("results"))
     else:
         return render_template('index.html')
@@ -69,7 +70,7 @@ def index():
 
 @app.route('/results')
 def results():
-    return render_template('results.html')
+    return render_template('results.html', results=getPreferenceMethod(user_input))
 
 
 def set_callback(funptr):

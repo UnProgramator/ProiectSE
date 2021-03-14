@@ -16,12 +16,75 @@
 
 <div class = "container">
     <div class = "row h-100 justify-content-center align-items-center">
-        <div class = "col-md-8 col-md-offset-8">
+        <div class = "col-md-12 col-md-offset-8">
             <br>
             <br>
 
-        <h1 id="Login_Page"> Recomandarea de joc </h1>
+        <h1> Recomandarea de joc </h1>
+            <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col" style="text-align: center">#</th>
+      <th scope="col" style="text-align: center">Nume joc</th>
+      <th scope="col" style="text-align: center">Multiplayer</th>
+      <th scope="col" style="text-align: center">Singleplayer</th>
+      <th scope="col" style="text-align: center">Platforma</th>
+      <th scope="col" style="text-align: center">Producator</th>
+      <th scope="col" style="text-align: center">Gen</th>
+      <th scope="col" style="text-align: center">PEGI</th>
+    </tr>
+  </thead>
+  <tbody>
 
+    {% if results %}
+        {% for result in results %}
+            <tr>
+            <th scope="row" style="text-align: center"> {{ loop.index }}</th>
+
+            {% for entry in result %}
+
+                {% if entry == "platforma" %}
+                    {% set platforma = namespace(platforma="") %}
+                    {% for plat in result[entry] %}
+                        {% set platforma.platforma = platforma.platforma ~ plat ~ " - " %}
+                    {% endfor %}
+
+                    <td class="block" style="width:15%; text-align: center">
+                      {{ platforma.platforma[:platforma.platforma|length-3] | upper }}
+                    </td>
+
+                {% elif entry == "gen" %}
+
+                    {% set genul = namespace(genul="") %}
+                    {% for gen in result[entry] %}
+                        {% set genul.genul = genul.genul ~ gen ~ " - " %}
+                    {% endfor %}
+
+                    <td class="block" style="width:20%; text-align: center">
+                      {{ genul.genul[:genul.genul|length-3] }}
+                    </td>
+
+                {% elif entry == "multiplayer" or entry == "singleplayer" %}
+                  <td style="text-align: center">
+                      {% if result[entry] == True %}
+                        &#10004;
+                      {% elif result[entry] == False %}
+                        &#10006;
+                      {% endif %}
+                  </td>
+
+                {% else %}
+                    <td style="text-align: center">
+                      {{ result[entry] }}
+                  </td>
+                {% endif  %}
+            {% endfor %}
+
+            </tr>
+        {% endfor %}
+    {% endif %}
+  </tbody>
+</table>
 
         </div>
     </div>
