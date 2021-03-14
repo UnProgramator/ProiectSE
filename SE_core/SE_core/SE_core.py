@@ -24,24 +24,22 @@ def process(inputData: knoledge_type, limit:int) -> knoledge_type:
 
     for game_attributes in bd.knoledge_base:
         score = get_score(inputData, game_attributes)
-        if score < 0.0:
-            continue
+        #if score < 0.0:
+        #    continue
         if score in scoreboard:
             scoreboard[score]+=[game_attributes]
         else:
-            scoreboard[score]=[game_attributes]
+            scoreboard[score]=[game_attributes] 
     
     nr=0 
 
     for i in sorted(scoreboard):
-        nr+=len(result)
-
-        scoreboard[i].sort(key=lambda x: x['nume'])
-
-        result += scoreboard[i]
-
+        nr+=len(scoreboard[i])
         if(nr>=limit):
             break
+        scoreboard[i].sort(key=lambda x: x['nume'])
+        result += scoreboard[i]
+        
     return result[0:limit]
 
 
@@ -60,33 +58,46 @@ def get_score(inputData: knoledge_type, obj: knoledge_type) -> float:
     (int) the score
     """
     score = 0
+    nr = 0
 
     if inputData['pegi'] != -1 and inputData['pegi'] < obj['pegi']:
         # daca copilul are varsta specificata si o are mai mica ca jocul, se returneaza -100 din start
         return -100
 
-    if inputData['multiplayer'] == obj['multiplayer']: score += 100
-    else: score -= 50
+    score+=100
+    nr+=1
 
-    if inputData['singleplayer'] == obj['singleplayer']: score += 100
-    else: score -= 50
+    if inputData['platforma'] is not None or set(inputData['platforma'].intersection(obj['platforma'])) is not None:
+        score+=100
+    nr+=1
 
-    if inputData['producator'] is not None:
+    if inputData['multiplayer'] is not None:
+        if inputData['multiplayer'] == obj['multiplayer']: score += 100
+        else: score -= 50
+        nr+=1
+
+    if inputData['singleplayer'] is not None:
+        if inputData['singleplayer'] == obj['singleplayer']: score += 100
+        else: score -= 50
+        nr+=1
+
+    if inputData['producator'] is not None and inputData['producator'] != []:
         for pr in inputData['producator']:
             if word_dist(pr, obj['producator']) > 80:
                 score+= 100
                 break
+        nr+=1
 
-    return score
+    return score/nr
 
 def callback(preferences):
-    return process(preferences, 10)
+    return process(preferences, 20)
 
 def main():
     load_db()
     #check_db()
-    l = process({"multiplayer":True, "singleplayer":True, "pegi":12, 'producator':['Blizzards']}, 10)
-    print_list(l)
+    #l = process({"multiplayer":True, "singleplayer":True, "pegi":12, 'producator':['Blizzards']}, 10)
+    #print_list(l)
 
 if __name__ == '__main__':
     main()

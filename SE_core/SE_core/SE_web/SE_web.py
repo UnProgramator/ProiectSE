@@ -48,7 +48,7 @@ def index():
         if platforme_selectate:
             user_input["platforma"] = platforme_selectate
         else:
-            user_input["platforma"] = [] #by default nu a selectat nimic
+            user_input["platforma"] = None #by default nu a selectat nimic
 
         if request.form["producator"]:
             user_input["producator"] = request.form["producator"]
