@@ -20,6 +20,10 @@ def save_bd() -> None:
     with open("knoledge_base/knoledge_base.json", "w") as json_file:
         json_file.write(json.dumps(knoledge_base, indent=5, sort_keys=False))
 
+def save_gen_to_att(genuri_list) -> None:
+    with open('knoledge_base\genre2attributes.json','w') as kb:
+         json.dump(genuri_list,kb,indent = 5, sort_keys=False)        
+
 def check_db()-> None:
     """
     Test implementation function
