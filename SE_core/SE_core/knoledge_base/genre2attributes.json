@@ -91,7 +91,7 @@
 
   "partials": [
     { "dynamic": [ "is energetic" ] },
-    { "dynamic": ["like action"] },
+    { "dynamic": [ "like action", "fast thinks" ] },
     { "figting": [ "like action" ] },
     {
       "think": [

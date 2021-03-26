@@ -11,5 +11,6 @@
 "exploring" -> do like to explore new unknown teritories?
 "decisions" -> like to be independent, take decisions on his own?
 "stories" -> like to hear stories?
-"competitive" -> "is competitive/ like competitve games like footbal, chess etc.?"
-"atmosphere" -> "like tense atmosphere, sensation of unknown, incertitude?"
+"competitive" -> is competitive/ like competitve games like footbal, chess etc.?
+"atmosphere" -> like tense atmosphere, sensation of unknown, incertitude?
+"fast thinks" -> like to be put in situation to decide fast?
