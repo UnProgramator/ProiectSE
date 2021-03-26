@@ -1,12 +1,11 @@
 from utils import *
 from typing import Union, Dict, List
 import bd
-from bd import knoledge_type, load_db, check_db
 import random
 import SE_web
 
 
-def process(inputData: knoledge_type, limit:int) -> knoledge_type:
+def process(inputData: bd.knoledge_type, limit:int) -> bd.knoledge_type:
     """
     process an imput for a client and calculate which games are recomended
 
@@ -60,7 +59,7 @@ def get_score(inputData: knoledge_type, obj: knoledge_type) -> float:
     score = 0
     nr = 0
 
-    if inputData['pegi'] != -1 and inputData['pegi'] < obj['pegi']:
+    if inputData['pegi'] < obj['pegi']:
         # daca copilul are varsta specificata si o are mai mica ca jocul, se returneaza -100 din start
         return -100
 
@@ -90,11 +89,26 @@ def get_score(inputData: knoledge_type, obj: knoledge_type) -> float:
 
     return score/nr
 
+def getGenres(inputAttributes:List[str]):
+    def compare(list, target):
+        for att in target:
+            if att not in list:
+                return False
+        return True
+    posible_genres = set()
+    for genre_rule in bd.gereKnoledgeBase:
+        for genre in genre_rule:
+            rules = genre_rule[genre]
+            if(compare(inputAttributes, rules)):
+                posible_genres.add(genre)
+    return list(posible_genres)
+
 def callback(preferences):
     return process(preferences, 20)
 
 def main():
-    load_db()
+    bd.load_games()
+    bd.load_genres()
     #check_db()
     #l = process({"multiplayer":True, "singleplayer":True, "pegi":12, 'producator':['Blizzards']}, 10)
     #print_list(l)

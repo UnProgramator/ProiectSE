@@ -4,9 +4,11 @@ from typing import Union, Dict, List, Iterable
 
 knoledge_type = Dict[str, Union[str, int, List[str]]]
 
+gereKnoledgeBase: List[Dict[str, List[Str]]]=None
+
 knoledge_base: Dict[str, knoledge_type]=None
 
-def load_db() -> None:
+def load_games() -> None:
     """
     load the database into the global variable knoledge_base
     """
@@ -14,6 +16,11 @@ def load_db() -> None:
     with open("knoledge_base/knoledge_base.json") as json_file:
         #knoledge_base = transform(json.load(json_file))
         knoledge_base = json.load(json_file)
+
+def load_genres() ->None:
+    global gereKnoledgeBase
+    with open("knoledge_base/knoledge_base.json") as json_file:
+        gereKnoledgeBase = json.load(json_file)
 
 def save_bd() -> None:
     global knoledge_base

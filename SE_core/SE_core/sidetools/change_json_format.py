@@ -15,7 +15,7 @@ def transform1():
 
 
 if __name__ == "__main__":
-    bd.load_db()
+    bd.load_games()
     transform1()
     print_list(bd.knoledge_base)
     if input() == 'y':
