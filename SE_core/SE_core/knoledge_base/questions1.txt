@@ -1,0 +1,15 @@
+creativity : Are you a creative person?
+horror : Do you enjoy playing horror video games?
+like_action : Do you like action to be present in games?
+is_energetic : Are you an energic person?
+puzzle : Do you enjoy doing puzzles or resolving riddles?
+planning : Do you like to plan things? / Are you a good planner?
+sport : Do you enjoy to play or to watch different sports?
+car : Do you like to drive a car or do you like cars in general?
+card : Do you enjoy to play card games?
+exploring : Would you like to explore new unknown territories?
+decisions : Do you like to be independent and take decisions on your own?
+stories : Do you enjoy reading or hearing stories?
+competitive : Are you a competitive person?
+atmosphere : Do you like tense atmosphere, the sensation of unknown or incertitude?
+fast_thinks : Do you like to be put in situation to decide fast?

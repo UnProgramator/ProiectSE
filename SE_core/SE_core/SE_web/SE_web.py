@@ -1,40 +1,43 @@
+import os
+
 from flask import Flask, request, redirect, url_for
 from flask import render_template
 
-
 app = Flask(__name__)
 
-user_input: dict = {}
+preferences: dict = {}
+my_questions: dict = {}
 
-getPreferenceMethod=None
+getPreferenceMethod = None
+
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    global user_input
-    user_input = {
+    global preferences, my_questions
+
+    preferences = {
         "multiplayer": False,
         "singleplayer": False,
         "platforma": [],
         "producator": "",
-        "pegi": int
-    }
+        "pegi": int,
+        "like_to_play_with_others": False,
+        "like_to_play_alone": False,
+        "both_alone_and_with_others": False
+        }
 
     if request.method == "POST":
         # default multiplayer: True
         if request.form.get("multiplayer") == "multiplayer_yes":
-            user_input["multiplayer"] = True
+            preferences["like_to_play_with_others"] = True
+            preferences["like_to_play_alone"] = False
+            preferences["both_alone_and_with_others"] = False
         elif request.form.get("multiplayer") == "multiplayer_no":
-            user_input["multiplayer"] = False
-        else:
-            user_input["multiplayer"] = None #daca nu a bifat il tratez ca none
-
-        # default singleplayer: True
-        if request.form.get("singleplayer") == "singleplayer_yes":
-            user_input["singleplayer"] = True
-        elif request.form.get("singleplayer") == "singleplayer_no":
-            user_input["singleplayer"] = False
-        else:
-            user_input["singleplayer"] = None #daca nu a bifat il tratez ca none
+            preferences["like_to_play_with_others"] = False
+            preferences["like_to_play_alone"] = True
+            preferences["both_alone_and_with_others"] = False
+        elif request.form.get("multiplayer") == "multiplayer_both":
+            preferences["both_alone_and_with_others"] = True
 
         platforme_selectate = []
         if request.form.get("platforma_pc") == "platforma_pc":
@@ -46,42 +49,57 @@ def index():
 
         # default: pc
         if platforme_selectate:
-            user_input["platforma"] = platforme_selectate
+            preferences["platforma"] = platforme_selectate
         else:
-            user_input["platforma"] = None #by default nu a selectat nimic
+            preferences["platforma"] = None  # by default nu a selectat nimic
 
         if request.form["producator"]:
-            user_input["producator"] = request.form["producator"]
+            preferences["producator"] = request.form["producator"]
 
         # default pegi: 3
         if request.form.get("pegi"):
             result_pegi = request.form.get("pegi")[5:]
-            user_input["pegi"] = int(result_pegi)
+            preferences["pegi"] = int(result_pegi)
         else:
-            user_input["pegi"] = 18 # ok
-        
-        print(getPreferenceMethod(user_input))
+            preferences["pegi"] = 18  # ok
 
+        for keyword in my_questions:
+            if request.form.get(keyword) == keyword+"_yes":
+                preferences[keyword] = True
+            elif request.form.get(keyword) == keyword+"_no":
+                preferences[keyword] = False
+            else:
+                preferences[keyword] = False
 
         return redirect(url_for("results"))
     else:
-        return render_template('index.html')
+        file1 = open(os.path.join(os.path.dirname(__file__), '../knoledge_base/questions1.txt'), 'r')
+        questions = file1.readlines()
+        file1.close()
+
+        for question_kw in questions:
+            keyword = question_kw[:question_kw.index(':')-1]
+            question = question_kw[question_kw.index(':')+2:-1]
+            my_questions[keyword] = question
+
+        return render_template('index.html', my_questions=my_questions)
 
 
 @app.route('/results')
 def results():
-    return render_template('results.html', results=getPreferenceMethod(user_input))
+    return render_template('results.html', results=getPreferenceMethod(preferences))
 
 
 def set_callback(funptr):
     global getPreferenceMethod
     getPreferenceMethod = funptr
 
+
 def main_loop():
     if getPreferenceMethod is None:
         raise Exception("no function assign for callback")
     app.run()
 
+
 if __name__ == '__main__':
     main_loop()
-

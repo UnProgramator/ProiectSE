@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Platforma alegere jocuri</title>
+    <title>Video game recommendation expert system</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
@@ -10,7 +10,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div style="text-align: center">Sistem Expert Recomandare Jocuri</div>
+            <div style="text-align: center">Video game recommendation expert system</div>
         </div>
     </nav>
 
@@ -20,102 +20,85 @@
             <br>
             <br>
 
-        <h1 id="Login_Page"> Alegeti preferintele dumneavoastra </h1>
+        <h1 style="font-size: x-large; margin-bottom: 2rem"> Answer these questions to get a video game recommendation </h1>
 
             <form method="post" action="/">
 
-                <div style="margin-bottom: 0.5rem"> Preferati jocurile multiplayer? </div>
-                    <div class="form-check" style="margin-bottom: 0.5rem">
-                    <input class="form-check-input" type="radio" value="multiplayer_yes" id="multiplayer_yes" name="multiplayer">
-                    <label class="form-check-label" for="multiplayer_yes">
-                        Da
-                    </label>
-                    </div>
+                <div class="form-group" style="margin-bottom: 2rem">
+                    <label for="varsta"> What is your age? </label>
+                    <input type="text" class="form-control" id="varsta" name="varsta">
+                </div>
 
-                    <div class="form-check" style="margin-bottom: 2rem">
-                    <input class="form-check-input" type="radio" value="multiplayer_no" id="multiplayer_no" name="multiplayer">
-                    <label class="form-check-label" for="multiplayer_no">
-                        Nu
-                    </label>
-                    </div>
+                <div style="margin-bottom: 0.5rem"> Do you like to play alone or with your friends? </div>
+                <div class="form-check" style="margin-bottom: 0.5rem">
+                <input class="form-check-input" type="radio" value="multiplayer_no" id="multiplayer_no" name="multiplayer">
+                <label class="form-check-label" for="multiplayer_no">
+                    I like to play alone
+                </label>
+                </div>
 
-                <div style="margin-bottom: 0.5rem"> Preferati jocurile singleplayer? </div>
-                    <div class="form-check" style="margin-bottom: 0.5rem">
-                    <input class="form-check-input" type="radio" value="singleplayer_yes" id="singleplayer_yes" name="singleplayer">
-                    <label class="form-check-label" for="singleplayer_yes">
-                        Da
-                    </label>
-                    </div>
+                <div class="form-check" style="margin-bottom: 0.5rem">
+                <input class="form-check-input" type="radio" value="multiplayer_yes" id="multiplayer_yes" name="multiplayer">
+                <label class="form-check-label" for="multiplayer_yes">
+                    I like to play with my friends
+                </label>
+                </div>
 
-                    <div class="form-check" style="margin-bottom: 2rem">
-                    <input class="form-check-input" type="radio" value="singleplayer_no" id="singleplayer_no" name="singleplayer">
-                    <label class="form-check-label" for="singleplayer_no">
-                        Nu
-                    </label>
-                    </div>
+                <div class="form-check" style="margin-bottom: 2rem">
+                <input class="form-check-input" type="radio" value="multiplayer_both" id="multiplayer_both" name="multiplayer">
+                <label class="form-check-label" for="multiplayer_both">
+                    I like to play both alone and with my friends
+                </label>
+                </div>
 
-                <div style="margin-bottom: 0.5rem">Ce platforma preferati? </div>
-                    <div class="form-check" style="margin-bottom: 0.5rem">
-                    <input class="form-check-input" type="checkbox" value="platforma_pc" id="platforma_pc" name="platforma_pc">
-                    <label class="form-check-label" for="platforma_pc">
-                        PC
-                    </label>
-                    </div>
 
-                    <div class="form-check" style="margin-bottom: 0.5rem">
-                    <input class="form-check-input" type="checkbox" value="platforma_ps" id="platforma_ps" name="platforma_ps">
-                    <label class="form-check-label" for="platforma_ps">
-                        Playstation
-                    </label>
-                    </div>
+                <div style="margin-bottom: 0.5rem"> What gaming platforms you prefer? </div>
+                <div class="form-check" style="margin-bottom: 0.5rem">
+                <input class="form-check-input" type="checkbox" value="platforma_pc" id="platforma_pc" name="platforma_pc">
+                <label class="form-check-label" for="platforma_pc">
+                    PC
+                </label>
+                </div>
 
-                    <div class="form-check" style="margin-bottom: 2rem">
-                    <input class="form-check-input" type="checkbox" value="platforma_xbox" id="platforma_xbox" name="platforma_xbox">
-                    <label class="form-check-label" for="platforma_xbox">
-                        XBox
-                    </label>
-                    </div>
+                <div class="form-check" style="margin-bottom: 0.5rem">
+                <input class="form-check-input" type="checkbox" value="platforma_ps" id="platforma_ps" name="platforma_ps">
+                <label class="form-check-label" for="platforma_ps">
+                    Playstation
+                </label>
+                </div>
 
-                    <div class="form-group" style="margin-bottom: 2rem">
-                        <label for="producator">Aveti producatori preferati? (Producator1, Producator2, ...) </label>
-                        <input type="text" class="form-control" id="producator" name="producator">
-                    </div>
+                <div class="form-check" style="margin-bottom: 2rem">
+                <input class="form-check-input" type="checkbox" value="platforma_xbox" id="platforma_xbox" name="platforma_xbox">
+                <label class="form-check-label" for="platforma_xbox">
+                    XBox
+                </label>
+                </div>
 
-                    <div style="margin-bottom: 0.5rem"> Ce categorie de varsta preferati? </div>
-                    <div class="form-check" style="margin-bottom: 0.5rem">
-                    <input class="form-check-input" type="radio" value="pegi_3" id="pegi_3" name="pegi">
-                    <label class="form-check-label" for="pegi_3">
-                        PEGI 3
-                    </label>
-                    </div>
+                <div class="form-group" style="margin-bottom: 2rem">
+                    <label for="producator"> Do you have any preferred video game companies? Write them here. (Company1, Company2, ...) </label>
+                    <input type="text" class="form-control" id="producator" name="producator">
+                </div>
 
-                    <div class="form-check" style="margin-bottom: 0.5rem">
-                    <input class="form-check-input" type="radio" value="pegi_7" id="pegi_7" name="pegi">
-                    <label class="form-check-label" for="pegi_7">
-                        PEGI 7
-                    </label>
-                    </div>
+                {% if my_questions %}
 
-                    <div class="form-check" style="margin-bottom: 0.5rem">
-                    <input class="form-check-input" type="radio" value="pegi_12" id="pegi_12" name="pegi">
-                    <label class="form-check-label" for="pegi_12">
-                        PEGI 12
-                    </label>
-                    </div>
+                    {% for keyword in my_questions %}
+                        <div style="margin-bottom: 0.5rem"> {{my_questions[keyword]}} </div>
+                        <div class="form-check" style="margin-bottom: 0.5rem">
+                        <input class="form-check-input" type="radio" value="{{keyword~'_yes'}}" id="{{keyword~'_yes'}}" name="{{keyword}}">
+                        <label class="form-check-label" for="{{keyword~'_yes'}}">
+                            Yes
+                        </label>
+                        </div>
 
-                    <div class="form-check" style="margin-bottom: 0.5rem">
-                    <input class="form-check-input" type="radio" value="pegi_16" id="pegi_16" name="pegi">
-                    <label class="form-check-label" for="pegi_16">
-                        PEGI 16
-                    </label>
-                    </div>
+                        <div class="form-check" style="margin-bottom: 2rem">
+                        <input class="form-check-input" type="radio" value="{{keyword~'_no'}}" id="{{keyword~'_no'}}" name="{{keyword}}">
+                        <label class="form-check-label" for="{{keyword~'_no'}}">
+                            No
+                        </label>
+                        </div>
+                    {% endfor %}
 
-                    <div class="form-check" style="margin-bottom: 2rem">
-                    <input class="form-check-input" type="radio" value="pegi_18" id="pegi_18" name="pegi">
-                    <label class="form-check-label" for="pegi_18">
-                        PEGI 18
-                    </label>
-                    </div>
+                {% endif %}
 
                 <button class="btn btn-primary" style="margin-bottom: 4rem">
                     Submit
