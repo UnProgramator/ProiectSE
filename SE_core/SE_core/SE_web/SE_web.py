@@ -58,7 +58,7 @@ def index():
             result_pegi = request.form.get("pegi")[5:]
             user_input["pegi"] = int(result_pegi)
         else:
-            user_input["pegi"] = 3 # ok
+            user_input["pegi"] = 18 # ok
         
         print(getPreferenceMethod(user_input))
 
@@ -84,3 +84,4 @@ def main_loop():
 
 if __name__ == '__main__':
     main_loop()
+

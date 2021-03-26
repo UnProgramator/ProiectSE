@@ -4,7 +4,7 @@ from typing import Union, Dict, List, Iterable
 
 knoledge_type = Dict[str, Union[str, int, List[str]]]
 
-gereKnoledgeBase: List[Dict[str, List[Str]]]=None
+gereKnoledgeBase: List[Dict[str, List[str]]]=None
 
 knoledge_base: Dict[str, knoledge_type]=None
 
