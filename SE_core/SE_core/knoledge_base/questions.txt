@@ -1,0 +1,15 @@
+"creativity" -> is creative?
+"horror" -> likes horror?
+"like action" -> likes action?
+"is energetic" -> have lot's of energy?
+"puzzle" -> likes to do puzzles or ridles- ghicitori(?)? 
+"planning" -> like to plan things? 
+"like to play with others", "both alone and with others", "like tot play alone" -> like to play alone or with friends
+"sport" -> does like sport games, like competitive footbal, basketball etc.
+"car" -> does like cars?
+"card" -> like playing cards?
+"exploring" -> do like to explore new unknown teritories?
+"decisions" -> like to be independent, take decisions on his own?
+"stories" -> like to hear stories?
+"competitive" -> "is competitive/ like competitve games like footbal, chess etc.?"
+"atmosphere" -> "like tense atmosphere, sensation of unknown, incertitude?"

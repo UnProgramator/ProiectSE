@@ -50,6 +50,7 @@
   <ItemGroup>
     <Content Include="knoledge_base\genre2attributes.json" />
     <Content Include="knoledge_base\knoledge_base.json" />
+    <Content Include="knoledge_base\questions.txt" />
     <Content Include="SE_web\templates\index.html" />
     <Content Include="SE_web\templates\results.html" />
   </ItemGroup>
