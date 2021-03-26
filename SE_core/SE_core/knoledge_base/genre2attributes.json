@@ -1,74 +1,102 @@
-[
-     {
-          "Survival Horror": []
-     },
-     {
-          "Atmospheric": []
-     },
-     {
-          "Action": []
-     },
-     {
-          "MMORPG": []
-     },
-     {
-          "Story-Rich": []
-     },
-     {
-          "Racing Simulation": []
-     },
-     {
-          "Roguelike": []
-     },
-     {
-          "RPG": []
-     },
-     {
-          "Platformer": []
-     },
-     {
-          "Adventure": []
-     },
-     {
-          "MOBA": []
-     },
-     {
-          "Hack and Slash": []
-     },
-     {
-          "Horror": []
-     },
-     {
-          "TPS": []
-     },
-     {
-          "Card Game": []
-     },
-     {
-          "Racing": []
-     },
-     {
-          "Sports": []
-     },
-     {
-          "Souls-like": []
-     },
-     {
-          "Survival": []
-     },
-     {
-          "FPS": []
-     },
-     {
-          "Psychological horror": []
-     },
-     {
-          "RTS": []
-     },
-     {
-          "Fighting": []
-     },
-     {
-          "Sandbox": []
-     }
-]
+{
+  "games types": 
+  [
+    {
+      "Survival Horror": [ "horror", "fighting", "dynamic" ]
+    },
+    {
+      "Atmospheric": [ "dynamic" ]
+    },
+    {
+      "Action": [ "dynamic" ]
+    },
+    {
+      "MMORPG": [ "fighting" ]
+    },
+    {
+      "Story-Rich": [ "stories" ]
+    },
+    {
+      "Racing Simulation": [ "car" ]
+    },
+    {
+      "Roguelike": [ "fighting", "dynamic" ]
+    },
+    {
+      "RPG": [ "stories", "fighting" ]
+    },
+    {
+      "RPG": [ "stories", "decisions" ]
+    },
+    {
+      "Platformer": [ "puzzle" ]
+    },
+    {
+      "Adventure": [ "fighting", "dynamic" ]
+    },
+    {
+      "Adventure": [ "exploring"]
+    },
+    {
+      "MOBA": [ "fighting" ]
+    },
+    {
+      "Hack and Slash": [ "fighting", "dynamic" ]
+    },
+    {
+      "Horror": [ "horror", "dynamic" ]
+    },
+    {
+      "TPS": [ "dynamic", "fighting" ]
+    },
+    {
+      "Card Game": [ "card", "think" ]
+    },
+    {
+      "Racing": [ "car" ]
+    },
+    {
+      "Sports": [ "car" ]
+    },
+    {
+      "Sports": [ "sport" ]
+    },
+    {
+      "Souls-like": [ "fighting", "dynamic" ]
+    },
+    {
+      "Survival": [ "fighting", "planning", "dynamic" ]
+    },
+    {
+      "FPS": [ "fighting" ]
+    },
+    {
+      "Psychological horror": [ "horror", "puzzle" ]
+    },
+    {
+      "Psychological horror": [ "horror", "fighting", "dynamic" ]
+    },
+    {
+      "RTS": [ "fighting", "think" ]
+    },
+    {
+      "Fighting": [ "fighting", "dynamic" ]
+    },
+    {
+      "Sandbox": [ "creativity", "think" ]
+    }
+  ],
+
+  "partials": [
+    { "dynamic": [ "is energetic" ] },
+    { "horror": [ "like horror" ] },
+    { "figting": [ "like action" ] },
+    {
+      "think": [
+        "puzzle",
+        { "not": "is energetic" }
+      ]
+    },
+    { "planning": [ "think" ] }
+  ]
+}

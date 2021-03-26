@@ -34,6 +34,7 @@
     <Compile Include="sidetools\change_json_format.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="sidetools\genre_to_attribute.py" />
     <Compile Include="test\util_unitest.py" />
     <Compile Include="utils.py">
       <SubType>Code</SubType>
@@ -47,6 +48,7 @@
     <Folder Include="test\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="knoledge_base\genre2attributes.json" />
     <Content Include="knoledge_base\knoledge_base.json" />
     <Content Include="SE_web\templates\index.html" />
     <Content Include="SE_web\templates\results.html" />
