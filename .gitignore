@@ -8,3 +8,8 @@
 /SE_core/SE_core/SE_web/__pycache__/*
 /**/__pycache__/*
 *.pyc
+release/*
+*.doc
+*.docx
+*.odt
+*.odt#
