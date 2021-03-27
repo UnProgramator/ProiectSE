@@ -93,20 +93,20 @@
   ],
 
   "partials": [
-    { "dynamic": [ "is energetic" ] },
-    { "dynamic": [ "like action", "fast thinks" ] },
-    { "figting": [ "like action" ] },
+    { "dynamic": [ "is_energetic" ] },
+    { "dynamic": [ "like_action", "fast_thinks" ] },
+    { "figting": [ "like_action" ] },
     {
       "think": [
         "puzzle",
-        { "not": "is energetic" }
+        { "not": "is_energetic" }
       ]
     },
     { "think": [ "creativity" ] },
     { "planning": [ "think" ] },
-    { "multiplayer": [ "like to play with others" ] },
-    { "multiplayer": [ "both alone and with others" ] },
-    { "singleplayer": [ "like tot play alone" ] },
-    { "singleplayer": [ "both alone and with others" ] }
+    { "multiplayer": [ "like_to_play_with_others" ] },
+    { "multiplayer": [ "both_alone_and_with_others" ] },
+    { "singleplayer": [ "like_tot_play_alone" ] },
+    { "singleplayer": [ "both_alone_and_with_others" ] }
   ]
 }

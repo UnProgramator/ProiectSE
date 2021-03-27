@@ -26,18 +26,16 @@ def index():
         "both_alone_and_with_others": False
         }
 
+    preferences['questions'] = []
+
     if request.method == "POST":
         # default multiplayer: True
         if request.form.get("multiplayer") == "multiplayer_yes":
-            preferences["like to play with others"] = True
-            preferences["like to play alone"] = False
-            preferences["both alone and with others"] = False
+            preferences['questions'] += ["like_to_play_with_others"]
         elif request.form.get("multiplayer") == "multiplayer_no":
-            preferences["like_to_play_with_others"] = False
-            preferences["like_to_play_alone"] = True
-            preferences["both_alone_and_with_others"] = False
+            preferences['questions'] += ["like_to_play_alone"]
         elif request.form.get("multiplayer") == "multiplayer_both":
-            preferences["both_alone_and_with_others"] = True
+            preferences['questions'] +=["both_alone_and_with_others"]
 
         platforme_selectate = []
         if request.form.get("platforma_pc") == "platforma_pc":
@@ -62,8 +60,6 @@ def index():
             preferences["pegi"] = int(result_pegi)
         else:
             preferences["pegi"] = 18  # ok
-
-        preferences['questions'] = []
 
         for keyword in my_questions:
             if request.form.get(keyword) == keyword+"_yes":
