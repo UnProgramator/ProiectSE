@@ -20,24 +20,20 @@ def index():
         "singleplayer": False,
         "platforma": [],
         "producator": "",
-        "pegi": int,
-        "like_to_play_with_others": False,
-        "like_to_play_alone": False,
-        "both_alone_and_with_others": False
+        "pegi": int
         }
 
     if request.method == "POST":
         # default multiplayer: True
         if request.form.get("multiplayer") == "multiplayer_yes":
-            preferences["like_to_play_with_others"] = True
-            preferences["like_to_play_alone"] = False
-            preferences["both_alone_and_with_others"] = False
+            preferences["like to play with others"] = True
         elif request.form.get("multiplayer") == "multiplayer_no":
-            preferences["like_to_play_with_others"] = False
-            preferences["like_to_play_alone"] = True
-            preferences["both_alone_and_with_others"] = False
+            preferences["like to play alone"] = True
         elif request.form.get("multiplayer") == "multiplayer_both":
-            preferences["both_alone_and_with_others"] = True
+            preferences["both alone and with others"] = True
+        else:
+            preferences["both alone and with others"] = True
+
 
         platforme_selectate = []
         if request.form.get("platforma_pc") == "platforma_pc":
@@ -56,33 +52,42 @@ def index():
         if request.form["producator"]:
             preferences["producator"] = request.form["producator"]
 
-        # default pegi: 3
-        if request.form.get("pegi"):
-            result_pegi = request.form.get("pegi")[5:]
-            preferences["pegi"] = int(result_pegi)
-        else:
-            preferences["pegi"] = 18  # ok
+        try:
+            # default pegi: 3
+            if request.form.get("varsta"):
+                preferences["pegi"] = int(request.form.get("varsta"))
+            else:
+                preferences["pegi"] = 18  # ok
+        except ValueError:
+            preferences["pegi"] = 18
 
         for keyword in my_questions:
-            if request.form.get(keyword) == keyword+"_yes":
-                preferences[keyword] = True
-            elif request.form.get(keyword) == keyword+"_no":
-                preferences[keyword] = False
+            if keyword.find(" "):
+                keyword_modified = keyword.replace(" ", "_")
+                if request.form.get(keyword_modified) == keyword_modified+"_yes":
+                    preferences[keyword] = True
             else:
-                preferences[keyword] = False
-
+                if request.form.get(keyword) == keyword+"_yes":
+                    preferences[keyword] = True
+        print(preferences)
         return redirect(url_for("results"))
     else:
         file1 = open(os.path.join(os.path.dirname(__file__), '../knoledge_base/questions1.txt'), 'r')
         questions = file1.readlines()
         file1.close()
+        my_questions_modified: dict = {}
 
         for question_kw in questions:
             keyword = question_kw[:question_kw.index(':')-1]
             question = question_kw[question_kw.index(':')+2:-1]
             my_questions[keyword] = question
 
-        return render_template('index.html', my_questions=my_questions)
+            if keyword.find(" "):
+                my_questions_modified[keyword.replace(" ", "_")] = question
+            else:
+                my_questions_modified[keyword] = question
+
+        return render_template('index.html', my_questions=my_questions_modified)
 
 
 @app.route('/results')
