@@ -170,19 +170,6 @@
           "pegi": 7
      },
      {
-          "nume": "Dota 2",
-          "multiplayer": true,
-          "singleplayer": false,
-          "platforma": [
-               "pc"
-          ],
-          "producator": "Valve",
-          "gen": [
-               "MOBA"
-          ],
-          "pegi": 13
-     },
-     {
           "nume": "League of Legends",
           "multiplayer": true,
           "singleplayer": false,

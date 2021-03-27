@@ -1,10 +1,20 @@
 {
   "games types": [
     {
-      "Survival Horror": [ "horror", "fighting", "dynamic" ]
+      "Survival Horror": [ "horror" ]
     },
     {
-      "Atmospheric": [ "dynamic", "atmosphere" ]
+      "Survival Horror": [
+        "fighting",
+        "dynamic",
+        { "not": "horror" }
+      ]
+    },
+    {
+      "Atmospheric": [ "atmosphere" ]
+    },
+    {
+      "Atmospheric": [ "dynamic" ]
     },
     {
       "Action": [ "dynamic" ]
@@ -20,6 +30,9 @@
     },
     {
       "Racing Simulation": [ "car", "multiplayer", "competitive" ]
+    },
+    {
+      "Roguelike": [ "fighting" ]
     },
     {
       "Roguelike": [ "fighting", "dynamic" ]
@@ -46,7 +59,13 @@
       "Hack and Slash": [ "fighting", "dynamic" ]
     },
     {
-      "Horror": [ "horror", "dynamic" ]
+      "Horror": [ "horror" ]
+    },
+    {
+      "Horror": [
+        "dynamic",
+        { "not": "horror" }
+      ]
     },
     {
       "TPS": [ "dynamic", "fighting" ]
@@ -55,7 +74,10 @@
       "Card Game": [ "card" ]
     },
     {
-      "Card Game": [ { "not": "dynamic" }, "think" ]
+      "Card Game": [
+        { "not": "dynamic" },
+        "think"
+      ]
     },
     {
       "Racing": [ "car" ]
@@ -70,32 +92,58 @@
       "Souls-like": [ "fighting", "dynamic" ]
     },
     {
-      "Survival": [ "fighting", "planning", "dynamic" ]
+      "Survival": [ "fighting", "dynamic" ]
+    },
+    {
+      "Survival": [ "fighting", "planning" ]
+    },
+    {
+      "Survival": [ "planning", "think" ]
     },
     {
       "FPS": [ "fighting" ]
     },
     {
-      "Psychological horror": [ "horror", "puzzle" ]
+      "Psychological horror": [ "horror" ]
     },
     {
-      "Psychological horror": [ "horror", "fighting", "dynamic" ]
+      "Psychological horror": [
+        "fighting",
+        "dynamic",
+        {
+          "not": { "not": "Horror" }
+        } ]
     },
     {
       "RTS": [ "fighting", "think" ]
     },
     {
-      "Fighting": [ "fighting", "dynamic" ]
+      "RTS": [ "fighting", "planning" ]
+    },
+    {
+      "Fighting": [ "fighting" ]
+    },
+    {
+      "Fighting": [
+        "dynamic",
+        { "not": { "not": "fighting" } }
+      ]
     },
     {
       "Sandbox": [ "creativity", "think" ]
+    },
+    {
+      "no-Fighting": { "not": "fighting" }
+    },
+    {
+      "no-Horror": { "not": "horror" }
     }
   ],
 
   "partials": [
     { "dynamic": [ "is_energetic" ] },
-    { "dynamic": [ "like_action", "fast_thinks" ] },
-    { "figting": [ "like_action" ] },
+    { "dynamic": [ "like_action" ] },
+    { "dynamic": [ "fast_thinks" ] },
     {
       "think": [
         "puzzle",

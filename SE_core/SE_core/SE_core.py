@@ -5,6 +5,7 @@ import random
 import SE_web
 
 genres=None
+not_genres=[]
 
 def process(inputData: bd.knoledge_type, limit:int) -> bd.knoledge_type:
     """
@@ -21,6 +22,8 @@ def process(inputData: bd.knoledge_type, limit:int) -> bd.knoledge_type:
 
     if type(limit) is not int:
         raise Exception("limit must be an integer")
+
+    print("prod",inputData["producator"])
 
     for game_attributes in bd.knoledge_base:
         score = get_score(inputData, game_attributes)
@@ -70,7 +73,7 @@ def get_score(inputData: bd.knoledge_type, obj: bd.knoledge_type) -> float:
             return -100
 
     if obj['pegi'] <=7:
-        if inputData['pegi'] - obj['pegi'] < 3:
+        if inputData['pegi'] - obj['pegi'] <= 3:
             score+=100
         elif inputData['pegi'] - obj['pegi'] < 7:
             score+=100*int(obj['pegi']/inputData['pegi']*0.7)
@@ -86,10 +89,7 @@ def get_score(inputData: bd.knoledge_type, obj: bd.knoledge_type) -> float:
         else:
             score+=10
     else:
-        if obj['pegi'] <= 15:
-            score+=100*max((obj['pegi']/inputData['pegi']*0.95), 0.7)
-        else:
-            score+=100
+        score+=100
     
     nr+=1
 
@@ -105,32 +105,28 @@ def get_score(inputData: bd.knoledge_type, obj: bd.knoledge_type) -> float:
 
     if inputData['producator'] is not None and inputData['producator'] != []:
         for pr in inputData['producator']:
-            if word_dist(pr, obj['producator']) > 80:
-                score+= 100
+            if word_dist(pr, obj['producator']) > 0.8:
+                score+= 200
+                nr+=1
                 break
-            nr+=1
-    
+
     if genres is not None:
-        att=0
-        for gen_ in obj['gen']:
-            if gen_ not in genres:
-                score-=(100/len(obj['gen']))
-            else:
-                score+=100
-            att+=1
-            nr+=1
+        intnum = len(set(genres).intersection(obj['gen']))
+        if intnum == 0:
+            score -= 100    
+        else:
+            if set(not_genres).intersection(obj['gen']) !=set():
+                score -= 200
+            score+=100*intnum
+        nr+=(intnum if intnum !=0 else 1)
 
-        if att < len(obj['gen']):
-            score += 30*(len(obj['gen']))
-            nr += len(obj['gen']) - att
-
-    return score/nr
+    return int(score/nr)
 
 def getGenres(inputAttributes:List[str]):
     def compare(list, target):
         for att in target:
             if type(att) is dict:
-                if att['no'] in list:
+                if att['not'] in list:
                     return False;
             else:
                 if att not in list:
@@ -149,15 +145,19 @@ def getGenres(inputAttributes:List[str]):
             rules = genre_rule[genre]
             if(compare(inputAttributes, rules)):
                 posible_genres.add(genre)
-    return list(posible_genres)
+    posible_genres = list(posible_genres)
+    no_genres=[]
+    for i in range(len(posible_genres)):
+        if posible_genres[i][0:4] == 'no-':
+            no_genres+=posible_genres[i][3:]
+    return posible_genres, no_genres
 
 def callback(preferences:bd.knoledge_type):
     global genres
-    genres = getGenres(preferences['questions'])
-    print(genres)
+    global not_genres
+    genres,not_genres = getGenres(preferences['questions'])
     if genres == []:
         genres = None
-    print(genres)
     return process(preferences, 20)
 
 def main():

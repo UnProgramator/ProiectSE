@@ -13,3 +13,4 @@ stories : Do you enjoy reading or hearing stories?
 competitive : Are you a competitive person?
 atmosphere : Do you like tense atmosphere, the sensation of unknown or incertitude?
 fast_thinks : Do you like to be put in situation to decide fast?
+fighting : Do you like fighting games/scenes?
