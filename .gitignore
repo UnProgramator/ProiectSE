@@ -6,3 +6,5 @@
 /SE_core/SE_core/__pycache__/utils.cpython-39.pyc
 /SE_core/SE_core/__pycache__/*
 /SE_core/SE_core/SE_web/__pycache__/*
+/**/__pycache__/*
+*.pyc
