@@ -4,7 +4,7 @@ from typing import Union, Dict, List, Iterable
 
 knoledge_type = Dict[str, Union[str, int, List[str]]]
 
-gereKnoledgeBase: List[Dict[str, List[str]]]=None
+gereKnoledgeBase=None
 
 knoledge_base: Dict[str, knoledge_type]=None
 
@@ -19,7 +19,7 @@ def load_games() -> None:
 
 def load_genres() ->None:
     global gereKnoledgeBase
-    with open("knoledge_base/knoledge_base.json") as json_file:
+    with open("knoledge_base/genre2attributes.json") as json_file:
         gereKnoledgeBase = json.load(json_file)
 
 def save_bd() -> None:

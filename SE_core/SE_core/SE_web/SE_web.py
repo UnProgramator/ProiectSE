@@ -29,9 +29,9 @@ def index():
     if request.method == "POST":
         # default multiplayer: True
         if request.form.get("multiplayer") == "multiplayer_yes":
-            preferences["like_to_play_with_others"] = True
-            preferences["like_to_play_alone"] = False
-            preferences["both_alone_and_with_others"] = False
+            preferences["like to play with others"] = True
+            preferences["like to play alone"] = False
+            preferences["both alone and with others"] = False
         elif request.form.get("multiplayer") == "multiplayer_no":
             preferences["like_to_play_with_others"] = False
             preferences["like_to_play_alone"] = True
@@ -63,13 +63,11 @@ def index():
         else:
             preferences["pegi"] = 18  # ok
 
+        preferences['questions'] = []
+
         for keyword in my_questions:
             if request.form.get(keyword) == keyword+"_yes":
-                preferences[keyword] = True
-            elif request.form.get(keyword) == keyword+"_no":
-                preferences[keyword] = False
-            else:
-                preferences[keyword] = False
+                preferences['questions'] += [keyword]
 
         return redirect(url_for("results"))
     else:

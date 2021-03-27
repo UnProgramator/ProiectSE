@@ -52,7 +52,10 @@
       "TPS": [ "dynamic", "fighting" ]
     },
     {
-      "Card Game": [ "card", "think" ]
+      "Card Game": [ "card" ]
+    },
+    {
+      "Card Game": [ { "not": "dynamic" }, "think" ]
     },
     {
       "Racing": [ "car" ]

@@ -64,6 +64,11 @@ def get_score(inputData: bd.knoledge_type, obj: bd.knoledge_type) -> float:
         # daca copilul are varsta specificata si o are mai mica ca jocul, se returneaza -100 din start
         return -100
 
+    if inputData['platforma'] is not None:
+        #daca exita preferinta de platforma si acest joc nu corespunde, dam -100, nu recomandam jocuri de ps pt cine cere de ps
+        if set(inputData['platforma']).intersection(set(obj['platforma'])) == set():
+            return -100
+
     if obj['pegi'] <=7:
         if inputData['pegi'] - obj['pegi'] < 3:
             score+=100
@@ -88,11 +93,6 @@ def get_score(inputData: bd.knoledge_type, obj: bd.knoledge_type) -> float:
     
     nr+=1
 
-    if inputData['platforma'] is not None:
-        if set(inputData['platforma'].intersection(obj['platforma'])) is not None:
-            score+=100
-        nr+=1
-
     if inputData['multiplayer'] is not None:
         if inputData['multiplayer'] == obj['multiplayer']: score += 100
         else: score -= 50
@@ -114,14 +114,14 @@ def get_score(inputData: bd.knoledge_type, obj: bd.knoledge_type) -> float:
         att=0
         for gen_ in obj['gen']:
             if gen_ not in genres:
-                score-=100
+                score-=(100/len(obj['gen']))
             else:
                 score+=100
             att+=1
             nr+=1
 
         if att < len(obj['gen']):
-            score += 30*(len(obj['gen']) - att)
+            score += 30*(len(obj['gen']))
             nr += len(obj['gen']) - att
 
     return score/nr
@@ -153,7 +153,11 @@ def getGenres(inputAttributes:List[str]):
 
 def callback(preferences:bd.knoledge_type):
     global genres
-    #genres = getGenres(preferences['?']) # tbi
+    genres = getGenres(preferences['questions'])
+    print(genres)
+    if genres == []:
+        genres = None
+    print(genres)
     return process(preferences, 20)
 
 def main():
