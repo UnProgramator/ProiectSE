@@ -19,4 +19,7 @@ To run the application simply run [mainModule.py](https://github.com/UnProgramat
 python SE_core/mainModule.py  
 ```  
 note you must be located in SE_core/SE_core when you run the command  
-then open your browser and type *localhost:5000*
+then open your browser and type *localhost:5000*  
+
+## License  
+The aplication is licensed under [BSD 3-Clause "New" or "Revised" License](https://github.com/UnProgramator/ProiectSE/blob/master/LICENSE)
